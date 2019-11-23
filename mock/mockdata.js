@@ -146,7 +146,7 @@ const equipments = [
     ],
     possibleIssues: [
       {
-        text: 'Needle broke'
+        text: 'Floor damage',
       },
       {
         text: 'Power failure'

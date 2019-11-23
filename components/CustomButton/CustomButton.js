@@ -9,13 +9,10 @@ const CustomButton = ({ title, onPress }) => (
     onPress={onPress}
     style={{
       height: 40,
-      bottom: 20,
-      position: "absolute",
       width: layout.window.width - layout.sizes.padding * 2,
       backgroundColor: "#E86E57",
       borderRadius: 10,
       zIndex: 2,
-      left: layout.sizes.padding,
       justifyContent: "center",
       alignItems: "center"
     }}

@@ -35,7 +35,8 @@
     "react-native-paper": "^2.16.0",
     "react-native-web": "^0.11.4",
     "react-navigation": "^3.11.0",
-    "react-navigation-hooks": "^1.0.3"
+    "react-navigation-hooks": "^1.0.3",
+    "ws": "^7.2.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0",
