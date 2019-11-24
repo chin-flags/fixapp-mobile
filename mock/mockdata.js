@@ -242,6 +242,25 @@ const equipments = [
       },
     ],
   },
+];
+
+const status = [
+  {
+    id: 1,
+    name: 'Pending',
+  },
+  {
+    id: 1,
+    name: 'Planning',
+  },
+  {
+    id: 1,
+    name: 'On Hold',
+  },
+  {
+    id: 1,
+    name: 'Completed',
+  },
 ]
 
-export { workOrders, equipments };
+export { workOrders, equipments, status };

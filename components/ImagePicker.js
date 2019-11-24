@@ -1,9 +1,14 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState, useEffect } from 'react';
-import { View, Button, TouchableOpacity, Image, Modal } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Button,
+  TouchableOpacity,
+  Image,
+  Modal,
+} from 'react-native';
 import GallerySwiper from 'react-native-gallery-swiper';
 import * as imagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
 import layout from '../constants/Layout';
 
 const ImagePicker = () => {
@@ -26,46 +31,44 @@ const ImagePicker = () => {
     }
   };
 
-  const imageSize = (layout.window.width - layout.sizes.padding * 2 - 5 * 6) / 3
+  const imageSize = (layout.window.width - layout.sizes.padding * 2 - 5 * 6) / 3;
   return (
     <View style={{ flex: 1 }}>
       <Button title="Pick Image" onPress={() => pickImage()} />
       { state.images && (
         <View
-          style={{ flexWrap: 'wrap',flexDirection: 'row', width: (layout.window.width - layout.sizes.padding * 2) }}>
+          style={{ flexWrap: 'wrap', flexDirection: 'row', width: (layout.window.width - layout.sizes.padding * 2) }}
+        >
             {
-              state.images.map( (image,index) => {
-                return (
-                  <TouchableOpacity
-                    activeOpacity = {0.8}
-                    onPress={() => {
-                      setState({
-                        ...state,
-                        modalVisible: true,
-                        selectedImg: index,
-                      })
+              state.images.map((image, index) => (
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    setState({
+                      ...state,
+                      modalVisible: true,
+                      selectedImg: index,
+                    });
+                  }}
+                >
+                  <Image
+                    source={image}
+                    style={{
+                      width: imageSize, height: imageSize, margin: 5, borderRadius: 10,
                     }}
-                  >
-                    <Image
-                      source={image} 
-                      style={{
-                        width: imageSize, height: imageSize, margin: 5, borderRadius: 10,
-                      }}
-                    />
-                  </TouchableOpacity>
-                ); 
-              })
+                  />
+                </TouchableOpacity>
+              ))
             }
         </View>
-      )
-    }
+      )}
       <Modal animationType="slide" transparent={false} visible={state.modalVisible}>
         <GallerySwiper
           images={state.images}
           initialPage={state.selectedImg}
         />
         <Button
-          title= "Cancel"
+          title="Cancel"
           onPress={() => setState({
             ...state,
             modalVisible: false,

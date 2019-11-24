@@ -6,7 +6,7 @@ import EquipmentSelector from '../screens/EquipmentScreen';
 
 const MainStackNavigator = createStackNavigator({
   Home: {
-    screen: CreateNotification,
+    screen: HomeScreen,
   },
   WorkOrderDetails: {
     screen: WorkOrderDetails,
