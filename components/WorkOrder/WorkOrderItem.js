@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 const WorkOrderItem = ({ workOrder, navigation }) => {
-  const { location, issueDetails, tags } = workOrder;
+  const { location, issueDetails, status, tags } = workOrder;
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -44,6 +44,7 @@ const WorkOrderItem = ({ workOrder, navigation }) => {
       <View style={styles.content}>
         <Text style={[styles.text, styles.title]}>{location}</Text>
         <Text style={styles.text}>{issueDetails}</Text>
+        <Text style={styles.text}>{status}</Text>
         <View style={{ flexDirection: 'row', marginTop: 10 }}>
           {tags
             && tags.map((tag) => (

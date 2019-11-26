@@ -63,7 +63,7 @@ const workOrders = [
       'https://www.thebetterindia.com/wp-content/uploads/2018/10/Representative-image-33.jpg',
       'https://i1.wp.com/thechargeronline.com/wp-content/uploads/2015/08/IMG_4794.jpg?fit=900%2C675&ssl=1'
     ],
-    status: 'Competed',
+    status: 'Completed',
     comments: [
       {
         text: 'Im working on it',
@@ -113,7 +113,7 @@ const workOrders = [
       'https://www.thebetterindia.com/wp-content/uploads/2018/10/Representative-image-33.jpg',
       'https://i1.wp.com/thechargeronline.com/wp-content/uploads/2015/08/IMG_4794.jpg?fit=900%2C675&ssl=1'
     ],
-    status: 'Competed',
+    status: 'On Hold',
     comments: [
       {
         text: 'Im working on it',

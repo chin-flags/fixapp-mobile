@@ -23,14 +23,22 @@ const WorkOrderDetails = () => {
     }
   };
 
+  const onClose = () => {
+    const modal = modalRef.current;
+    if (modal) {
+      modal.close();
+    }
+  };
+
   return (
     <View style={{ flex: 3, backgroundColor: Colors.background }}>
       <Modalize
         ref={modalRef}
         modalHeight={Layout.window.height - 100}
         snapPoint={Layout.window.height / 2}
+        keyboardAvoidingBehavior
       >
-        <UpDateStatusModal currentStatus={workOrder.status} />
+        <UpDateStatusModal currentStatus={workOrder.status} workOrder={workOrder} onClose={onClose} />
       </Modalize>
       <View
         style={{
