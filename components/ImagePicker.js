@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import * as imagePicker from 'expo-image-picker';
 
-const pickImage = async (update, setUpdate) => {
+export const pickImageFromGallery = async (update, setUpdate) => {
   const result = await imagePicker.launchImageLibraryAsync({
     mediaTypes: imagePicker.MediaTypeOptions.All,
     aspect: [4, 3],
@@ -14,4 +14,15 @@ const pickImage = async (update, setUpdate) => {
   }
 };
 
-export default pickImage;
+export const pickImageFromCamera = async (update, setUpdate) => {
+  const result = await imagePicker.launchCameraAsync({
+    mediaTypes: imagePicker.MediaTypeOptions.All,
+    aspect: [4, 3],
+  });
+  if (!result.cancelled) {
+    setUpdate({
+      ...update,
+      images: [...update.images, { uri: result.uri }],
+    });
+  }
+};

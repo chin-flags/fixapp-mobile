@@ -1,9 +1,10 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import WorkOrderSummaryItem from './WorkOrderSummaryItem';
+import ImageGallery from '../ImageGallery';
 
 const WorkOrderSummary = ({ workOrder }) => {
   const {
@@ -44,15 +45,7 @@ const WorkOrderSummary = ({ workOrder }) => {
       </WorkOrderSummaryItem>
       <WorkOrderSummaryItem icon="picture">
         <View style={{ paddingHorizontal: 20, flexDirection: 'row' }}>
-          {images.map((image) => (
-            <Image
-              key={image.uri}
-              style={{
-                width: 100, height: 75, marginRight: 15, borderRadius: 10,
-              }}
-              source={image}
-            />
-          ))}
+          <ImageGallery images={images} />
         </View>
       </WorkOrderSummaryItem>
     </View>

@@ -4,7 +4,7 @@ import { TouchableOpacity, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import layout from '../../constants/Layout';
 
-const CustomButton = ({ title, onPress, color = '#E86E57' }) => (
+const CustomButton = ({ title, onPress, color }) => (
   <TouchableOpacity
     activeOpacity={0.8}
     onPress={onPress}

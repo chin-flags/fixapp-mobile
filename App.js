@@ -7,7 +7,7 @@ import {
   Platform, StatusBar, StyleSheet, View,
 } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-
+import { Portal } from 'react-native-paper';
 import AppNavigator from './navigation/AppNavigator';
 
 // import required fonts
@@ -63,10 +63,12 @@ const App = () => {
     );
   }
   return (
-    <View style={styles.container}>
-      {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      <AppNavigator />
-    </View>
+    <Portal.Host>
+      <View style={styles.container}>
+        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        <AppNavigator />
+      </View>
+    </Portal.Host>
   );
 };
 

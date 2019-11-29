@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 
 import CustomButton from '../CustomButton/CustomButton';
-import pickImage from '../ImagePicker';
+import { pickImageFromGallery, pickImageFromCamera } from '../ImagePicker';
 import Layout from '../../constants/Layout';
 import Colors from '../../constants/Colors';
 import ImageGallery from '../ImageGallery';
@@ -32,7 +32,7 @@ const UpDateStatusModal = ({ workOrder, currentStatus, onClose }) => {
   };
 
   return (
-    <View style={{ padding: Layout.sizes.padding }}>
+    <View style={{ padding: Layout.sizes.padding, zIndex: 100 }}>
       <Text
         style={{
           fontSize: 20,
@@ -51,23 +51,26 @@ const UpDateStatusModal = ({ workOrder, currentStatus, onClose }) => {
       >
         update it here
       </Text>
-      <Picker
-        selectedValue={update.type}
-        onValueChange={(value) => setUpdate({ ...update, type: value })}
-        style={{
-          backgroundColor: 'white',
-          elevation: 2,
-          padding: 10,
-          borderRadius: 30,
-          marginVertical: 15,
-        }}
+      <View style={{
+        backgroundColor: 'white',
+        elevation: 2,
+        borderRadius: 5,
+        overflow: 'hidden',
+        marginTop: 15,
+      }}
       >
-        {
-          status.map((s) => (
-            <Picker.Item key={s.id} value={s.name} label={s.name} />
-          ))
-        }
-      </Picker>
+        <Picker
+          selectedValue={update.type}
+          onValueChange={(value) => setUpdate({ ...update, type: value })}
+          style={{ padding: 10, fontSize: 16 }}
+        >
+          {
+            status.map((s) => (
+              <Picker.Item key={s.id} value={s.name} label={s.name} />
+            ))
+          }
+        </Picker>
+      </View>
       <TextInput
         value={update.comments}
         multiline
@@ -75,13 +78,14 @@ const UpDateStatusModal = ({ workOrder, currentStatus, onClose }) => {
         style={{
           backgroundColor: 'white',
           elevation: 2,
-          padding: 10,
           borderRadius: 5,
           marginVertical: 15,
+          padding: 10,
+          fontSize: 16,
         }}
         onChangeText={(text) => setUpdate({ ...update, comments: text })}
       />
-      <CustomButton title="Pick Image" onPress={() => pickImage(update, setUpdate)} color={Colors.gray} />
+      <CustomButton title="Pick Image" onPress={() => pickImageFromGallery(update, setUpdate)} color={Colors.gray} />
       {
         update.images && <ImageGallery images={update.images} />
       }

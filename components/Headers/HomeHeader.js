@@ -61,6 +61,7 @@ const HomeHeader = () => {
         <CustomButton
           title="New Notification"
           onPress={() => navigate('EquipmentSelector')}
+          color="#E86E57"
         />
       </View>
     </View>
