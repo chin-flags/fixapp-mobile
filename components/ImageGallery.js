@@ -19,11 +19,12 @@ const ImageGallery = ({ images }) => {
     selectedImg: 0,
   });
 
-  const imageSize = (Layout.window.width - Layout.sizes.padding * 2 - 5 * 6) / 3;
+  const imageSize = (Layout.window.width - Layout.sizes.padding * 4 - 5 * 4) / 2;
+  const imageContainerWidth = (Layout.window.width - Layout.sizes.padding * 4)
   return (
-    <View style={{ flex: 1, height: null }}>
+    <View style={{  height: null }}>
       <View
-        style={{ flexWrap: 'wrap', flexDirection: 'row', width: (Layout.window.width - Layout.sizes.padding * 2) }}
+        style={{ flexWrap: 'wrap', flexDirection: 'row', width: imageContainerWidth }}
       >
         {
             images && images.map((image, index) => (

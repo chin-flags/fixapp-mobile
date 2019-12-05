@@ -20,9 +20,9 @@ async function loadResourcesAsync() {
   await Promise.all([
     // load other assets
     // Asset.loadAsync([
-    //   require('./assets/images/robot-dev.png'),
-    //   require('./assets/images/robot-prod.png'),
-    // ]),
+    //    require('./assets/images/background_image.png'),
+    // //   require('./assets/images/robot-prod.png'),
+    //  ]),
     Font.loadAsync({
       ...Ionicons.font,
       ...AntDesign.font,

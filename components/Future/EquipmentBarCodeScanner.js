@@ -8,7 +8,7 @@ import {
 import * as Permissions from 'expo-permissions';
 import { useNavigation } from 'react-navigation-hooks';
 import { Camera } from 'expo-camera';
-import layout from '../constants/Layout';
+import layout from '../../constants/Layout';
 
 const barcodeImage = require('../assets/images/barcode.jpg');
 

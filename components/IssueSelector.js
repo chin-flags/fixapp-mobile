@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Colors from '../constants/Colors';
+import Layout from '../constants/Layout';
 
 const IssueSelector = ({ issues, issue, setIssue }) => (
   <View>
@@ -52,9 +53,10 @@ const IssueSelector = ({ issues, issue, setIssue }) => (
       placeholder="Comments"
       style={{
         backgroundColor: 'white',
-        elevation: 2,
         padding: 10,
-        borderRadius: 5,
+        borderRadius: Layout.sizes.radius,
+        borderWidth:1,
+        borderColor: Colors.borderColor,
         marginVertical: 15,
       }}
       onChangeText={(text) => setIssue({ ...issue, comments: text })}

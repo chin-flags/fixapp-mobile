@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 const EquipmentNavigator = ({ state, onParentPressed }) => (
   <FlatList
-    style={{ height: null }}
+    style={{ height: 40 }}
     horizontal
     showsHorizontalScrollIndicator={false}
     data={state.selectedItems}

@@ -6,22 +6,23 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import { useNavigationParam } from 'react-navigation-hooks';
+import { Button } from 'react-native-paper';
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 
-import NewNotificationHeader from '../components/Headers/NewNotificationHeader';
 import IssueSelector from '../components/IssueSelector';
 import ImagePicker from '../components/ImagePicker';
-import CustomButton from '../components/CustomButton/CustomButton';
 import { equipments } from '../mock/mockdata';
 import CreateNotificationCard from '../components/WorkOrder/CreateWorkOrderCard';
+import CreateNotificationHeader from '../components/Headers/CreateNotificationHeader';
 import Layout from '../constants/Layout';
+import Colors from '../constants/Colors';
 
 const CreateNotification = () => {
   const [issue, setIssue] = useState({
     category: '',
     desc: '',
     comments: '',
+    images:[],
   });
 
   //const equipment = useNavigationParam('equipment');
@@ -61,25 +62,24 @@ const CreateNotification = () => {
             </View>
           ) : null}
         </CreateNotificationCard>
-        <CreateNotificationCard
-          title="IMAGES"
-          icon={(
-            <MaterialIcons
-              name="add-a-photo"
-              size={24}
-            />
-          )}
-        >
-          <ImagePicker />
-        </CreateNotificationCard>
+        <ImagePicker update={issue} setUpdate={setIssue}/>
       </ScrollView>
-      <CustomButton title="CRATE NOTIFICATION" />
+      <Button
+        mode='outlined'
+        color={Colors.accent}
+        dark={false}
+        onPress={() => navigate('createNotification', {
+          equipment: state.selectedEquipment,
+        })}
+      >
+        DONE
+      </Button>
     </View>
   );
 };
 
 CreateNotification.navigationOptions = {
-  header: <NewNotificationHeader />,
+  header: <CreateNotificationHeader />,
 };
 
 export default CreateNotification;

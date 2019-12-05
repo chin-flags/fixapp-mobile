@@ -4,11 +4,15 @@ import {
   View,
 } from 'react-native';
 import { useNavigation } from 'react-navigation-hooks';
-import layout from '../constants/Layout';
+import { Button } from 'react-native-paper';
+
+import Layout from '../constants/Layout';
 import { equipments } from '../mock/mockdata';
 import EquipmentList from '../components/Equipment/EquipmentList';
 import EquipmentNavigator from '../components/Equipment/EquipmentNavigator';
 import CustomButton from '../components/CustomButton/CustomButton';
+import EquipmentSelectorHeader from '../components/Headers/EquipmentSelectorHeader';
+import Colors from '../constants/Colors';
 
 const EquipmentSelector = () => {
   const { navigate } = useNavigation();
@@ -20,7 +24,17 @@ const EquipmentSelector = () => {
     history: [],
   });
 
+  const resetSelectedItem = () => {
+    setState((prevState) => ({
+      ...prevState,
+      selectedEquipment: {},
+    }));
+  }
+
   const itemPressed = (item) => {
+
+    console.log('item', item)
+    console.log('selected', state.selectedEquipment)
     if (!item.children) {
       setState((prevState) => ({
         ...prevState,
@@ -63,30 +77,31 @@ const EquipmentSelector = () => {
     <View
       style={{
         flex: 1,
+        padding: Layout.sizes.padding,
+        justifyContent: 'space-between'
       }}
     >
-      <View
-        style={{
-          paddingHorizontal: layout.sizes.padding,
-          marginTop: layout.sizes.margin,
-          justifyContent: 'space-around',
-        }}
-      >
+      <View>
         <EquipmentNavigator state={state} onParentPressed={onParentPressed} />
         <EquipmentList state={state} onItemPressed={itemPressed} />
       </View>
-      <CustomButton
-        title="Done"
+      <Button
+        mode='outlined'
+        color={Colors.accent}
+        disabled={Object.keys(state.selectedEquipment).length === 0}
+        dark={false}
         onPress={() => navigate('createNotification', {
           equipment: state.selectedEquipment,
         })}
-      />
+      >
+        DONE
+      </Button>
     </View>
   );
 };
 
 EquipmentSelector.navigationOptions = {
-  header: null,
+  header: <EquipmentSelectorHeader />,
 };
 
 export default EquipmentSelector;

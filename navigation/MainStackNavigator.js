@@ -2,7 +2,8 @@ import { createStackNavigator } from 'react-navigation';
 import HomeScreen from '../screens/HomeScreen';
 import WorkOrderDetails from '../screens/WorkOrderDetailsScreen';
 import CreateNotification from '../screens/CreateNotificationScreen';
-import EquipmentSelector from '../screens/EquipmentScreen';
+import EquipmentScreen from '../screens/EquipmentScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const MainStackNavigator = createStackNavigator({
   Home: {
@@ -15,8 +16,11 @@ const MainStackNavigator = createStackNavigator({
     screen: CreateNotification,
   },
   EquipmentSelector: {
-    screen: EquipmentSelector,
+    screen: EquipmentScreen,
   },
+  Profile: {
+    screen: ProfileScreen,
+  }
 });
 
 export default MainStackNavigator;

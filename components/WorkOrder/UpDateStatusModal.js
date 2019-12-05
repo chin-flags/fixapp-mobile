@@ -9,10 +9,11 @@ import {
   TextInput,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { Button } from 'react-native-paper';
 
 
 import CustomButton from '../CustomButton/CustomButton';
-import { pickImageFromGallery, pickImageFromCamera } from '../ImagePicker';
+import ImagePicker, { pickImageFromGallery, pickImageFromCamera } from '../ImagePicker';
 import Layout from '../../constants/Layout';
 import Colors from '../../constants/Colors';
 import ImageGallery from '../ImageGallery';
@@ -53,16 +54,18 @@ const UpDateStatusModal = ({ workOrder, currentStatus, onClose }) => {
       </Text>
       <View style={{
         backgroundColor: 'white',
-        elevation: 2,
-        borderRadius: 5,
-        overflow: 'hidden',
+        borderRadius: Layout.sizes.radius,
+        borderWidth: 1,
+        borderColor: Colors.borderColor,
         marginTop: 15,
+        overflow: 'hidden',
       }}
       >
         <Picker
           selectedValue={update.type}
           onValueChange={(value) => setUpdate({ ...update, type: value })}
-          style={{ padding: 10, fontSize: 16 }}
+          itemStyle={{  fontSize: 16, fontFamily: 'notosans-regular'}}
+          style={{ padding: 10 }}
         >
           {
             status.map((s) => (
@@ -77,19 +80,20 @@ const UpDateStatusModal = ({ workOrder, currentStatus, onClose }) => {
         placeholder="Comments"
         style={{
           backgroundColor: 'white',
-          elevation: 2,
-          borderRadius: 5,
-          marginVertical: 15,
+          borderRadius: Layout.sizes.radius,
+          borderWidth: 1,
+          borderColor: Colors.borderColor,
+          marginTop: 15,
           padding: 10,
           fontSize: 16,
+          fontFamily: 'notosans-regular'
         }}
         onChangeText={(text) => setUpdate({ ...update, comments: text })}
       />
-      <CustomButton title="Pick Image" onPress={() => pickImageFromGallery(update, setUpdate)} color={Colors.gray} />
-      {
-        update.images && <ImageGallery images={update.images} />
-      }
-      <CustomButton title="Update" onPress={() => submitUpdate()} />
+      <ImagePicker update ={update} setUpdate={setUpdate} />
+      <Button mode='contained' color={Colors.accent} onPress={() => submitUpdate()} >
+        UPDATE
+      </Button>
     </View>
   );
 };

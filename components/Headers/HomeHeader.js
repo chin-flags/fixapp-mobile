@@ -5,8 +5,9 @@ import {
   Text,
   Image,
   StyleSheet,
+  TouchableOpacity
 } from 'react-native';
-import { useNavigation } from 'react-navigation-hooks';
+import { withNavigation } from 'react-navigation';
 import CustomButton from '../CustomButton/CustomButton';
 import Layout from '../../constants/Layout';
 import colors from '../../constants/Colors';
@@ -31,8 +32,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeHeader = () => {
-  const { navigate } = useNavigation();
+const HomeHeader = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View
@@ -51,10 +51,12 @@ const HomeHeader = () => {
           >
             FixApp
           </Text>
-          <Image
-            style={styles.avatar}
-            source={{ uri: 'https://randomuser.me/api/portraits/women/32.jpg' }}
-          />
+          <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Profile')}>
+            <Image
+              style={styles.avatar}
+              source={{ uri: 'https://randomuser.me/api/portraits/women/32.jpg' }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={{ position: 'absolute', bottom: 20, left: Layout.sizes.padding }}>
@@ -68,4 +70,4 @@ const HomeHeader = () => {
   );
 };
 
-export default HomeHeader;
+export default withNavigation(HomeHeader);

@@ -11,11 +11,13 @@ import WorkOrderItem from '../components/WorkOrder/WorkOrderItem';
 
 import { workOrders } from '../mock/mockdata';
 import colors from '../constants/Colors';
+import Layout from '../constants/Layout';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
+    paddingHorizontal: Layout.sizes.padding/2,
   },
 });
 

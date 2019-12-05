@@ -17,6 +17,7 @@ const EquipmentList = ({ state, onItemPressed }) => {
         style={{
           flex: 1,
           alignItems: 'center',
+          justifyContent: 'flex-start',
         }}
       >
         {data.map((item) => {

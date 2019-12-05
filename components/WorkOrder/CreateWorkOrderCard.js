@@ -2,13 +2,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import Layout from '../../constants/Layout';
+import Colors from '../../constants/Colors';
 
 const CreateWorkOrderCard = ({ title, icon = null, children }) => (
   <View style={{
     marginVertical: 10,
-    borderRadius: 15,
-    elevation: 2,
+    borderRadius: Layout.sizes.radius,
     margin: 2,
+    elevation:2,
     backgroundColor: 'white',
     padding: 20,
   }}

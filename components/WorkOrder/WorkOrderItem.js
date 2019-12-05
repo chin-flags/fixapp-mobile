@@ -9,22 +9,23 @@ import {
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
-import colors from '../../constants/Colors';
-import layout from '../../constants/Layout';
+import Colors from '../../constants/Colors';
+import Layout from '../../constants/Layout';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    margin: 5,
-    backgroundColor: colors.white,
-    borderRadius: 5,
-    elevation: 2,
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.borderColor,
+    borderRadius: Layout.sizes.radius,
+    marginTop: 5,
   },
   content: {
-    padding: layout.sizes.padding / 2,
+    padding: Layout.sizes.padding / 2,
   },
   text: {
-    color: colors.black,
+    color: Colors.black,
   },
   title: {
     fontSize: 16,
