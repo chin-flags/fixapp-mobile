@@ -9,6 +9,6 @@ export default createAppContainer(
     Main: MainStackNavigator,
   },
   {
-    initialRouteName: 'Auth',
+    initialRouteName: 'Main',
   }),
 );

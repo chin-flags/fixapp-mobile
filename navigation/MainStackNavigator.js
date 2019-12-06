@@ -4,10 +4,11 @@ import WorkOrderDetails from '../screens/WorkOrderDetailsScreen';
 import CreateNotification from '../screens/CreateNotificationScreen';
 import EquipmentScreen from '../screens/EquipmentScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import DashboardScreen from '../screens/DashboardScreen';
 
 const MainStackNavigator = createStackNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: DashboardScreen,
   },
   WorkOrderDetails: {
     screen: WorkOrderDetails,
@@ -20,7 +21,10 @@ const MainStackNavigator = createStackNavigator({
   },
   Profile: {
     screen: ProfileScreen,
-  }
+  },
+  Dashboard: {
+    screen: DashboardScreen,
+  },
 });
 
 export default MainStackNavigator;

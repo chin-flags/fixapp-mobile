@@ -6,7 +6,6 @@ import {
   Text, View, StyleSheet, Button, Image,
 } from 'react-native';
 import * as Permissions from 'expo-permissions';
-import { useNavigation } from 'react-navigation-hooks';
 import { Camera } from 'expo-camera';
 import layout from '../../constants/Layout';
 
@@ -17,10 +16,7 @@ const EquipmentBarCodeScanner = ({ setVisible }) => {
     hasCameraPermission: null,
     scanned: false,
   });
-  console.log(state);
   const { hasCameraPermission, scanned } = state;
-
-  const { navigate } = useNavigation();
 
   const getPermissions = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);

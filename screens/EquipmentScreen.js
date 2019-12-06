@@ -3,19 +3,16 @@ import React, { useState } from 'react';
 import {
   View,
 } from 'react-native';
-import { useNavigation } from 'react-navigation-hooks';
 import { Button } from 'react-native-paper';
 
 import Layout from '../constants/Layout';
 import { equipments } from '../mock/mockdata';
 import EquipmentList from '../components/Equipment/EquipmentList';
 import EquipmentNavigator from '../components/Equipment/EquipmentNavigator';
-import CustomButton from '../components/CustomButton/CustomButton';
 import EquipmentSelectorHeader from '../components/Headers/EquipmentSelectorHeader';
 import Colors from '../constants/Colors';
 
 const EquipmentSelector = () => {
-  const { navigate } = useNavigation();
   const [state, setState] = useState({
     originalData: equipments,
     data: equipments,
@@ -32,9 +29,6 @@ const EquipmentSelector = () => {
   }
 
   const itemPressed = (item) => {
-
-    console.log('item', item)
-    console.log('selected', state.selectedEquipment)
     if (!item.children) {
       setState((prevState) => ({
         ...prevState,

@@ -8,7 +8,9 @@ import {
 } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Portal } from 'react-native-paper';
+import { Provider } from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
+import store from './redux/store';
 
 // import required fonts
 const notosansRegular = require('./assets/fonts/NotoSans-Regular.ttf');
@@ -63,12 +65,14 @@ const App = () => {
     );
   }
   return (
-    <Portal.Host>
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
-      </View>
-    </Portal.Host>
+    <Provider store={store}>
+      <Portal.Host>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <AppNavigator />
+        </View>
+      </Portal.Host>
+    </Provider>
   );
 };
 

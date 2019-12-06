@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-paper';
 import useForm from 'react-hook-form';
-import { useNavigation } from 'react-navigation-hooks';
 import { useAuth } from '../../hooks/useAuth'
 import { emailRegEx } from '../../constants/Strings';
 import Colors from '../../constants/Colors';
@@ -51,7 +50,6 @@ const SignInWithEmailForm = ({ onOpen }) => {
   );
 
   const auth = useAuth();
-  const {navigate} = useNavigation();
 
   const onSuccess = () => {
     navigate('Home');

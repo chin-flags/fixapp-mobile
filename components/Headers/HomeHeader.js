@@ -7,10 +7,12 @@ import {
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
+import { Button } from 'react-native-paper';
 import { withNavigation } from 'react-navigation';
+import { connect } from 'react-redux';
 import CustomButton from '../CustomButton/CustomButton';
 import Layout from '../../constants/Layout';
-import colors from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
   },
   titile: {
     fontFamily: 'notosans-bold',
-    color: colors.black,
+    color: Colors.black,
     fontSize: Layout.sizes.font * 2,
     fontWeight: '600',
   },
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeHeader = ({ navigation }) => {
+const HomeHeader = ({ navigation, user }) => {
   return (
     <View style={styles.container}>
       <View
@@ -59,15 +61,30 @@ const HomeHeader = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ position: 'absolute', bottom: 20, left: Layout.sizes.padding }}>
-        <CustomButton
-          title="New Notification"
-          onPress={() => navigate('EquipmentSelector')}
-          color="#E86E57"
-        />
+      <View style={{ position: 'absolute',width:'60%', bottom: 20, alignSelf: 'center' }}>
+      <Button
+          mode='outlined'
+          color={Colors.white}
+          style={{borderWidth:0.5, borderColor: '#FFC107'}}
+          onPress={() => navigation.navigate('Dashboard')}
+        >
+          Dashboard
+        </Button>
+        <Button
+          mode='outlined'
+          color={Colors.white}
+          style={{borderWidth:1, borderColor: '#FFC107'}}
+          onPress={() => navigation.navigate('EquipmentSelector')}
+        >
+          New Notification
+        </Button>
       </View>
     </View>
   );
 };
 
-export default withNavigation(HomeHeader);
+const mapStateToProps = (state) => ({
+  user: state.auth,
+})
+
+export default connect(mapStateToProps)(withNavigation(HomeHeader));

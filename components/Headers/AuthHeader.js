@@ -6,7 +6,6 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import { useNavigation } from 'react-navigation-hooks';
 import { Button } from 'react-native-paper';
 import CustomButton from '../CustomButton/CustomButton';
 import Layout from '../../constants/Layout';
@@ -37,8 +36,6 @@ const styles = StyleSheet.create({
 });
 
 const AuthHeader = ({ signInActive, setSignInActive }) => {
-  console.log('set',setSignInActive)
-  const { navigate } = useNavigation();
   return (
     <View style={styles.container}>
       <View

@@ -25,7 +25,6 @@ const CreateNotification = () => {
     images:[],
   });
 
-  //const equipment = useNavigationParam('equipment');
   const equipment = equipments[0];
   return (
     <View style={{ flex: 1, paddingHorizontal: Layout.sizes.padding, paddingBottom: 20 }}>
