@@ -1,22 +1,55 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text,StyleSheet, TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
+import  { connect } from 'react-redux';
 import Layout from '../../constants/Layout';
-import CustomButton from '../CustomButton/CustomButton';
+import Colors from '../../constants/Colors';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#3E5B79',
+    borderBottomRightRadius: Layout.sizes.padding,
+    borderBottomLeftRadius: Layout.sizes.padding,
+    height: Layout.window.height / 3,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center', 
+  },
+  title: {
+    fontFamily: 'notosans-bold',
+    color: Colors.white,
+    fontSize: 26,
+  },
+  workOrderId: {
+    fontSize: 24,
+    color: 'white',
+    fontFamily: 'notosans-bold-italic',
+    marginLeft: 10,
+  },
+  subTitle: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: 'yellow',
+    marginRight: 10,
+  },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 20,
+    alignSelf: 'center',
+    width: '70%',
+  },
+});
 
 const WorkOrderHeader = ({ workOrder, onOpen, navigation }) => (
   <View
-    style={{
-      flexDirection: 'row',
-      backgroundColor: '#3E5B79',
-      height: Layout.window.height / 3,
-      borderBottomRightRadius: Layout.sizes.padding,
-      borderBottomLeftRadius: Layout.sizes.padding,
-    }}
+    style={styles.container}
   >
     <View
       style={{
@@ -28,36 +61,21 @@ const WorkOrderHeader = ({ workOrder, onOpen, navigation }) => (
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Ionicons name="md-arrow-round-back" color="white" size={24} />
       </TouchableOpacity>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View style={styles.row}>
         <Text
-          style={{
-            fontSize: 24,
-            color: 'white',
-            fontFamily: 'notosans-bold',
-          }}
+          style={styles.title}
         >
           Work Order
         </Text>
         <Text
-          style={{
-            fontSize: 24,
-            color: 'white',
-            fontFamily: 'notosans-bold-italic',
-            marginLeft: 10,
-          }}
+          style={styles.workOrderId}
         >
           {workOrder.id}
         </Text>
       </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View style={styles.row}>
         <View
-          style={{
-            width: 12,
-            height: 12,
-            borderRadius: 6,
-            backgroundColor: 'yellow',
-            marginRight: 10,
-          }}
+          style={styles.subTitle}
         />
         <Text
           style={{
@@ -70,16 +88,18 @@ const WorkOrderHeader = ({ workOrder, onOpen, navigation }) => (
         </Text>
       </View>
     </View>
-    <View style={{ position: 'absolute', bottom: 20, left: Layout.sizes.padding }}>
-      {
-        onOpen && (
-        <CustomButton
-          title="Update Status"
-          onPress={onOpen}
-          color="#E86E57"
-        />
-        )
-      }
+    <View style={styles.buttonContainer}>
+      <Button
+        loading={!onOpen}
+        style={{ borderColor: Colors.accent, borderWidth: 1, borderRadius: 10 }}
+        mode="outlined"
+        color={Colors.accent}
+        onPress={onOpen}
+      >
+        <Text style={{ color: 'white', fontSize: Layout.sizes.font }}>
+          UPDATE STATUS
+        </Text>
+      </Button>
     </View>
   </View>
 );
@@ -90,4 +110,8 @@ WorkOrderHeader.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default withNavigation(WorkOrderHeader);
+const mapStateToProps = (state) => ({
+  workOrder: state.workorder.selectedWorkorder,
+});
+
+export default connect(mapStateToProps)(withNavigation(WorkOrderHeader));

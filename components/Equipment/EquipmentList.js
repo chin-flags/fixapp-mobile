@@ -8,7 +8,7 @@ import Equipment from './Equipment';
 
 const EquipmentList = ({ state, onItemPressed }) => {
   const {
-    selectedEquipment: { text },
+    selectedEquipment: { name },
     data,
   } = state;
   return (
@@ -21,7 +21,7 @@ const EquipmentList = ({ state, onItemPressed }) => {
         }}
       >
         {data.map((item) => {
-          const selected = text === item.text;
+          const selected = name === item.name;
           return (
             <Equipment
               key={item.id}

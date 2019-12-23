@@ -1,14 +1,18 @@
-import { createStackNavigator } from 'react-navigation';
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen';
 import WorkOrderDetails from '../screens/WorkOrderDetailsScreen';
 import CreateNotification from '../screens/CreateNotificationScreen';
 import EquipmentScreen from '../screens/EquipmentScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import DashboardScreen from '../screens/DashboardScreen';
+import DashboardHeader from '../components/Headers/DashboardHeader';
+
+import DashboardTopTabNavigator from './DashboardTopTabNavigator';
 
 const MainStackNavigator = createStackNavigator({
   Home: {
-    screen: DashboardScreen,
+    screen: HomeScreen,
   },
   WorkOrderDetails: {
     screen: WorkOrderDetails,
@@ -23,7 +27,10 @@ const MainStackNavigator = createStackNavigator({
     screen: ProfileScreen,
   },
   Dashboard: {
-    screen: DashboardScreen,
+    screen: DashboardTopTabNavigator,
+    navigationOptions:  {
+      header: <DashboardHeader/>
+    }
   },
 });
 

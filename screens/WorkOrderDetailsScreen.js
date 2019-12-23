@@ -7,6 +7,7 @@ import { withNavigation } from 'react-navigation';
 import Modalize from 'react-native-modalize';
 import { Portal } from 'react-native-paper';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import WorkOrderSummary from '../components/WorkOrder/WorkOrderSummary';
 import Colors from '../constants/Colors';
@@ -14,9 +15,8 @@ import Layout from '../constants/Layout';
 import UpDateStatusModal from '../components/WorkOrder/UpDateStatusModal';
 import WorkOrderHeader from '../components/Headers/WorkOrderHeader';
 
-const WorkOrderDetails = ({ navigation }) => {
+const WorkOrderDetails = ({ navigation, workOrder }) => {
   const modalRef = useRef(Modalize);
-  const workOrder = navigation.getParam('workOrder');
 
   const onOpen = () => {
     const modal = modalRef.current;
@@ -24,6 +24,9 @@ const WorkOrderDetails = ({ navigation }) => {
       modal.open();
     }
   };
+  useEffect(() => {
+    navigation.setParams({ onOpen, workOrder });
+  }, []);
 
   const onClose = () => {
     const modal = modalRef.current;
@@ -31,10 +34,6 @@ const WorkOrderDetails = ({ navigation }) => {
       modal.close();
     }
   };
-
-  useEffect(() => {
-    navigation.setParams({ onOpen, workOrder });
-  }, []);
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
@@ -65,15 +64,19 @@ const WorkOrderDetails = ({ navigation }) => {
 };
 
 WorkOrderDetails.navigationOptions = ({ navigation }) => {
-  const workOrder = navigation.getParam('workOrder');
   const onOpen = navigation.getParam('onOpen');
   return ({
-    header: <WorkOrderHeader workOrder={workOrder} onOpen={onOpen} />,
+    header: <WorkOrderHeader onOpen={onOpen} />,
   });
 };
 
 WorkOrderDetails.propTypes = {
   navigation: PropTypes.object.isRequired,
+  workOrder: PropTypes.object.isRequired,
 };
 
-export default withNavigation(WorkOrderDetails);
+const mapStateToProps = (state) => ({
+  workOrder: state.workorder.selectedWorkorder,
+});
+
+export default connect(mapStateToProps)(withNavigation(WorkOrderDetails));

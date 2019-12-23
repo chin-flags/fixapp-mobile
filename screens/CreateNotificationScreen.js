@@ -1,23 +1,23 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import { Button } from 'react-native-paper';
-import { AntDesign, MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 
 import IssueSelector from '../components/IssueSelector';
 import ImagePicker from '../components/ImagePicker';
-import { equipments } from '../mock/mockdata';
 import CreateNotificationCard from '../components/WorkOrder/CreateWorkOrderCard';
 import CreateNotificationHeader from '../components/Headers/CreateNotificationHeader';
 import Layout from '../constants/Layout';
 import Colors from '../constants/Colors';
 
-const CreateNotification = () => {
+const CreateNotification = ({ navigation }) => {
   const [issue, setIssue] = useState({
     category: '',
     desc: '',
@@ -25,10 +25,10 @@ const CreateNotification = () => {
     images:[],
   });
 
-  const equipment = equipments[0];
+  const equipment = navigation.getParam('equipment');
   return (
     <View style={{ flex: 1, paddingHorizontal: Layout.sizes.padding, paddingBottom: 20 }}>
-      <ScrollView showsVerticalScrollIndicator={false} >
+      <ScrollView showsVerticalScrollIndicator={false} style={{ marginBottom: 15 }}>
         <CreateNotificationCard
           title="EQUIPMENT"
           icon={(
@@ -41,7 +41,7 @@ const CreateNotification = () => {
           <View style={{ alignItems: 'center', flexDirection: 'row'}}>
             {equipment !== undefined ? (
               <Text style={{ fontFamily: 'notosans-regular', fontSize: 16 }}>
-                {equipment.text}
+                {equipment.name}
               </Text>
             ) : null}
           </View>
@@ -61,17 +61,17 @@ const CreateNotification = () => {
             </View>
           ) : null}
         </CreateNotificationCard>
-        <ImagePicker update={issue} setUpdate={setIssue}/>
+        <ImagePicker update={issue} setUpdate={setIssue} />
       </ScrollView>
       <Button
-        mode='outlined'
+        style={{ borderColor: Colors.accent, borderWidth: 1, borderRadius: 10 }}
+        mode="outlined"
         color={Colors.accent}
-        dark={false}
-        onPress={() => navigate('createNotification', {
-          equipment: state.selectedEquipment,
-        })}
+        onPress={() => navigation.navigate('Dashboard')}
       >
-        DONE
+        <Text style={{ color: 'black', fontSize: Layout.sizes.font }}>
+            DONE
+        </Text>
       </Button>
     </View>
   );
@@ -80,5 +80,9 @@ const CreateNotification = () => {
 CreateNotification.navigationOptions = {
   header: <CreateNotificationHeader />,
 };
+
+CreateNotification.propTypes = {
+  navigation: PropTypes.object.isRequired,
+}
 
 export default CreateNotification;

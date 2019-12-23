@@ -7,8 +7,11 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
+
+import { setSelectedWorkorder } from '../../redux/workorder/workorderActions';
 import Colors from '../../constants/Colors';
 import Layout from '../../constants/Layout';
 
@@ -34,12 +37,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const WorkOrderItem = ({ workOrder, navigation }) => {
+const WorkOrderItem = ({ workOrder, navigation, setWorkorder }) => {
   const { location, issueDetails, status, tags } = workOrder;
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      onPress={() => navigation.navigate('WorkOrderDetails', { workOrder })}
+      onPress={() => {
+        setWorkorder(workOrder);
+        navigation.navigate('WorkOrderDetails');
+      }}
       style={styles.container}
     >
       <View style={styles.content}>
@@ -70,6 +76,11 @@ const WorkOrderItem = ({ workOrder, navigation }) => {
 WorkOrderItem.propTypes = {
   workOrder: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
+  setWorkorder: PropTypes.func.isRequired,
 };
 
-export default withNavigation(WorkOrderItem);
+const mapDispatchToProps = (dispatch) => ({
+  setWorkorder: (workorder) => dispatch(setSelectedWorkorder(workorder))
+});
+
+export default connect(null, mapDispatchToProps)(withNavigation(WorkOrderItem));

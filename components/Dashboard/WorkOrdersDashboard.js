@@ -1,11 +1,13 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { View,TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import { PieChart } from 'react-native-svg-charts';
 import { Text } from 'react-native-svg';
+import Layout from '../../constants/Layout';
 
-const Labels = ({ slices, height, width}) => {
+const Labels = ({ slices }) => {
   return slices.map((slice, index) => {
-    const { labelCentroid, pieCentroid, data} = slice;
+    const { labelCentroid, pieCentroid, data } = slice;
     console.log(data)
     return (
       <Text
@@ -25,22 +27,22 @@ const Labels = ({ slices, height, width}) => {
 
 const WorkOrdersDashboard = () => {
   const data = [50, 10]
-    const randomColor = () => ('#' + ((Math.random() * 0xffffff) << 0).toString(16) + '000000').slice(0, 7)
-    const pieData = data
-        .filter((value) => value > 0)
-        .map((value, index) => ({
-            value,
-            svg: {
-                fill: randomColor(),
-                onPress: () => console.log('press', index),
-            },
-            key: `pie-${index}`,
-        }))
+  const randomColor = () => ('#' + ((Math.random() * 0xffffff) << 0).toString(16) + '000000').slice(0, 7)
+  const pieData = data
+    .filter((value) => value > 0)
+    .map((value, index) => ({
+      value,
+      svg: {
+        fill: randomColor(),
+        onPress: () => console.log('press', index),
+      },
+      key: `pie-${index}`,
+    }));
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, padding: Layout.sizes.padding }}>
       <PieChart style={{height: 200, marginTop: 100}} data={pieData} innerRadius='50%'>
-        <Labels/>
+        <Labels />
       </PieChart>
     </View>
   )

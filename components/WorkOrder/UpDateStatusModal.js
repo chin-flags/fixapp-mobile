@@ -91,8 +91,15 @@ const UpDateStatusModal = ({ workOrder, currentStatus, onClose }) => {
         onChangeText={(text) => setUpdate({ ...update, comments: text })}
       />
       <ImagePicker update ={update} setUpdate={setUpdate} />
-      <Button mode='contained' color={Colors.accent} onPress={() => submitUpdate()} >
-        UPDATE
+      <Button
+        style={{ borderColor: Colors.accent, borderWidth: 1, borderRadius: 10, marginTop: 15 }}
+        mode="outlined"
+        color={Colors.accent}
+        onPress={() => submitUpdate()}
+      >
+        <Text style={{ color: 'black', fontSize: Layout.sizes.font }}>
+          UPDATE
+        </Text>
       </Button>
     </View>
   );

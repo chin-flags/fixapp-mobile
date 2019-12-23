@@ -1,11 +1,11 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { FontAwesome,  } from '@expo/vector-icons';
+import { View, Text } from 'react-native';
 import Layout from '../../constants/Layout';
 
 const PeopleDashboard = () => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1, padding: Layout.sizes.padding }}>
       <Text>Peopl</Text>
     </View>
   )

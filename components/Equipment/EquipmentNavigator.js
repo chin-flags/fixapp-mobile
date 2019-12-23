@@ -51,7 +51,7 @@ const EquipmentNavigator = ({ state, onParentPressed }) => (
             justifyContent: 'center',
           }}
         >
-          {`${item.text} /`}
+          {`${item.name} /`}
         </Text>
       </TouchableOpacity>
     )}

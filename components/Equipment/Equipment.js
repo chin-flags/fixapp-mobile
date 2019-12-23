@@ -16,13 +16,9 @@ import Layout from '../../constants/Layout';
 
 const machineImage = require('../../assets/images/machine_temp.jpg');
 
-const width = Layout.window.width - Layout.sizes.padding * 2;
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: width * 0.2,
-    width,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.borderColor,
@@ -57,9 +53,9 @@ const Equipment = ({ equipment, onItemPressed, selected }) => (
           fontFamily: 'notosans-regular-italic',
         }}
       >
-        {equipment.text}
+        {equipment.name}
       </Text>
-      { equipment.children ? <Ionicons name="ios-arrow-forward" color="black" size={24} /> : null}
+      { equipment.items ? <Ionicons name="ios-arrow-forward" color="black" size={24} /> : null}
       {selected && <Ionicons name="md-checkmark" color="green" size={24} />}
     </View>
   </TouchableOpacity>

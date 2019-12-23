@@ -17,11 +17,11 @@ const IssueSelector = ({ issues, issue, setIssue }) => (
       {
         issues.map((i) => (
           <TouchableOpacity
-            key={i.text}
+            key={i.name}
             activeOpacity={0.8}
             onPress={() => setIssue({
               ...issue,
-              desc: i.text,
+              desc: i.name,
             })}
             style={{
               alignItems: 'center',
@@ -33,15 +33,15 @@ const IssueSelector = ({ issues, issue, setIssue }) => (
               marginRight: 10,
               borderColor: '#808080',
               elevation: 2,
-              backgroundColor: (issue.desc === i.text) ? Colors.accent : 'white',
+              backgroundColor: (issue.desc === i.name) ? Colors.accent : 'white',
             }}
           >
             <Text style={{
               fontFamily: 'notosans-regular',
-              color: (issue.desc === i.text) ? 'white' : 'black',
+              color: (issue.desc === i.name) ? 'white' : 'black',
             }}
             >
-              {i.text}
+              {i.name}
             </Text>
           </TouchableOpacity>
         ))
