@@ -5,8 +5,8 @@ import { View } from 'react-native';
 import SignUpWithEmailForm from './SignUpWithEmailForm';
 
 const SignIn = () => (
-  <View style={{width:'100%'}}>
-    <SignUpWithEmailForm/>
+  <View style={{ width: '100%' }}>
+    <SignUpWithEmailForm />
   </View>
 );
 

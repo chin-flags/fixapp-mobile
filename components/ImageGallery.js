@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
+import { Button } from 'react-native-paper';
 import PropTypes from 'prop-types';
 import GallerySwiper from 'react-native-gallery-swiper';
 import Layout from '../constants/Layout';
-import CustomButton from './CustomButton/CustomButton';
 
 
 const ImageGallery = ({ images }) => {
@@ -20,9 +20,9 @@ const ImageGallery = ({ images }) => {
   });
 
   const imageSize = (Layout.window.width - Layout.sizes.padding * 4 - 5 * 4) / 2;
-  const imageContainerWidth = (Layout.window.width - Layout.sizes.padding * 4)
+  const imageContainerWidth = (Layout.window.width - Layout.sizes.padding * 4);
   return (
-    <View style={{  height: null }}>
+    <View style={{ height: null }}>
       <View
         style={{ flexWrap: 'wrap', flexDirection: 'row', width: imageContainerWidth }}
       >
@@ -54,13 +54,14 @@ const ImageGallery = ({ images }) => {
           images={images}
           initialPage={state.selectedImg}
         />
-        <CustomButton
-          title="Cancel"
+        <Button
           onPress={() => setState({
             ...state,
             modalVisible: false,
           })}
-        />
+        >
+          Cancel
+        </Button>
       </Modal>
     </View>
   );

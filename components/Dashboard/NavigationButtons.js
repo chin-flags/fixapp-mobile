@@ -1,6 +1,8 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 import Layout from '../../constants/Layout';
 
 const NavigationButtons = ({
@@ -9,7 +11,7 @@ const NavigationButtons = ({
   activeTintColor,
   inactiveTintColor,
   onTabPress,
-  navigation
+  navigation,
 }) => {
   const { routes, index: activeRouteIndex } = navigation.state;
   return (
@@ -41,6 +43,15 @@ const NavigationButtons = ({
       }
     </View>
   );
+};
+
+NavigationButtons.propTypes = {
+  renderIcon: PropTypes.func.isRequired,
+  getLabelText: PropTypes.func.isRequired,
+  activeTintColor: PropTypes.string.isRequired,
+  inactiveTintColor: PropTypes.string.isRequired,
+  onTabPress: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default NavigationButtons;

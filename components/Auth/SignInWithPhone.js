@@ -1,18 +1,13 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-no-undef */
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
   View,
-  TextInput,
   Text,
-  TouchableOpacity,
   StyleSheet,
-  ActivityIndicator,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
-import useForm from 'react-hook-form';
-import { useAuth } from '../../hooks/useAuth'
-import { emailRegEx } from '../../constants/Strings';
 import Colors from '../../constants/Colors';
 import Layout from '../../constants/Layout';
 
@@ -38,34 +33,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const SignInWithEmailForm = ({ onOpen }) => {
-  const defaultValues = {
-    email: '',
-    password: '',
-  };
+const SignInWithEmailForm = ({ onOpen }) => (
+  <View style={{ width: '100%', marginTop: Layout.sizes.margin / 2 }}>
+    <Button
+      mode="outlined"
+      color={Colors.black}
+      style={{ borderWidth: 2, borderColor: '#3E5B79' }}
+      onPress={() => onOpen()}
+    >
+      <Text style={styles.button_text}>SIGN IN WITH PHONE</Text>
+    </Button>
+  </View>
+);
 
-  const [loading, setLoading] = useState(false);
-  const {register, unregister, setValue, errors, watch, handleSubmit} = useForm(
-    defaultValues,
-  );
 
-  const auth = useAuth();
-
-  const onSuccess = () => {
-    navigate('Home');
-  };
-
-  return (
-    <View style={{width:'100%', marginTop: Layout.sizes.margin / 2 }}>
-       <Button
-        mode='outlined'
-        color={Colors.black}
-        style={{borderWidth:2, borderColor: '#3E5B79' }}
-        onPress={() => onOpen()}>
-        <Text style={styles.button_text}>SIGN IN WITH PHONE</Text>
-      </Button>
-    </View>
-  );
+SignInWithEmailForm.propTypes = {
+  onOpen: PropTypes.func.isRequired,
 };
 
 export default SignInWithEmailForm;

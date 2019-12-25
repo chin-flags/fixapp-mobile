@@ -28,9 +28,9 @@ const MainStackNavigator = createStackNavigator({
   },
   Dashboard: {
     screen: DashboardTopTabNavigator,
-    navigationOptions:  {
-      header: <DashboardHeader/>
-    }
+    navigationOptions: {
+      header: <DashboardHeader />,
+    },
   },
 });
 

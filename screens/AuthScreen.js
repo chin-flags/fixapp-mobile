@@ -6,12 +6,12 @@ import
   View,
   StyleSheet,
   ImageBackground,
+  KeyboardAvoidingView,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 import Modalize from 'react-native-modalize';
 import { Portal } from 'react-native-paper';
-
 import Layout from '../constants/Layout';
 import AuthHeader from '../components/Headers/AuthHeader';
 import SignIn from '../components/Auth/SignIn';
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
 const AuthScreen = ({ navigation }) => {
   const [signInActive, setSignInActive] = useState(true);
   const modalRef = useRef(Modalize);
-
   useEffect(() => {
     navigation.setParams({ signInActive, setSignInActive });
   }, [signInActive]);
@@ -53,11 +52,10 @@ const AuthScreen = ({ navigation }) => {
     }
   };
 
-  const width = Layout.window.width;
-  const height = Layout.window.height;
+  const { width, height } = Layout.window;
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <Portal>
         <Modalize
           ref={modalRef}
@@ -71,10 +69,16 @@ const AuthScreen = ({ navigation }) => {
       {
         signInActive ? <SignIn onOpen={onOpen} /> : <SignUp />
       }
-      <View style={{width, height: height / 5, position: 'absolute', bottom: 0}}>
+      <View style={{
+        width,
+        height: height / 5,
+        position: 'absolute',
+        bottom: 0,
+      }}
+      >
         <ImageBackground source={backgroundImage} style={{ flex: 1, opacity: 0.5 }} />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

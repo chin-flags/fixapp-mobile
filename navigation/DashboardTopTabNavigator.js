@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import PropTypes from 'prop-types';
 
 import NavigationIcon from '../components/Dashboard/NavigationIcon';
 import WorkOrdersDashboard from '../components/Dashboard/WorkOrdersDashboard';
@@ -27,17 +27,13 @@ const DashboardTopNavigator = createMaterialTopTabNavigator({
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => <NavigationIcon name="users" color={tintColor} />,
     },
-  }, 
+  },
 }, {
   tabBarComponent: NavigationButtons,
   tabBarOptions: {
     activeTintColor: '#ffab91',
     inactiveTintColor: '#bdbdbd',
-  }
+  },
 });
-
-DashboardTopNavigator.propTypes = {
-  tintColor: PropTypes.string.isRequired,
-}
 
 export default DashboardTopNavigator;

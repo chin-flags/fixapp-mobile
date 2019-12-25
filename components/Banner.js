@@ -4,7 +4,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
-import { FontAwesome } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
 import Colors from '../constants/Colors';
@@ -39,8 +38,8 @@ const styles = StyleSheet.create({
 });
 
 const Banner = ({ text, buttonTitle, bannerStyles }) => (
-  <View style={[ styles.container, { ...bannerStyles }]}>
-    <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+  <View style={[styles.container, { ...bannerStyles }]}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
       <View>
         <Text
           style={styles.title_text}
@@ -60,6 +59,7 @@ const Banner = ({ text, buttonTitle, bannerStyles }) => (
 
 Banner.propTypes = {
   text: PropTypes.string.isRequired,
+  buttonTitle: PropTypes.string.isRequired,
   bannerStyles: PropTypes.object,
 };
 

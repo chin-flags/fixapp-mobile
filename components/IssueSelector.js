@@ -55,7 +55,7 @@ const IssueSelector = ({ issues, issue, setIssue }) => (
         backgroundColor: 'white',
         padding: 10,
         borderRadius: Layout.sizes.radius,
-        borderWidth:1,
+        borderWidth: 1,
         borderColor: Colors.borderColor,
         marginVertical: 15,
       }}

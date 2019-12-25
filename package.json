@@ -14,8 +14,7 @@
   "dependencies": {
     "@expo/samples": "~3.0.3",
     "@expo/vector-icons": "^10.0.3",
-    "@react-native-firebase/app": "^6.1.0",
-    "@react-native-firebase/auth": "^6.1.0",
+    "@firebase/firestore": "^1.9.1",
     "@react-navigation/web": "^1.0.0-alpha.9",
     "expo": "^34.0.3",
     "expo-asset": "^6.0.0",
@@ -27,6 +26,7 @@
     "expo-image-picker": "~6.0.0",
     "expo-permissions": "~6.0.0",
     "expo-web-browser": "6.0.0",
+    "firebase": "^7.6.1",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-dom": "^16.8.6",

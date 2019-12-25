@@ -31,7 +31,7 @@ const ImagePicker = ({ update, setUpdate }) => {
       mediaTypes: imagePicker.MediaTypeOptions.All,
       aspect: [4, 3],
     });
-    setPickerVisible(false)
+    setPickerVisible(false);
     if (!result.cancelled) {
       setUpdate({
         ...update,
@@ -61,7 +61,7 @@ const ImagePicker = ({ update, setUpdate }) => {
       </Button>
       {
         pickerVisible && (
-          <View style={{ flexDirection: 'row', width: '100%'}}>
+          <View style={{ flexDirection: 'row', width: '100%' }}>
             <Button mode="text" color={Colors.accent} icon="photo-camera" onPress={() => pickImageFromCamera()}>
               Camera
             </Button>
@@ -81,6 +81,6 @@ const ImagePicker = ({ update, setUpdate }) => {
 ImagePicker.propTypes = {
   update: PropTypes.object.isRequired,
   setUpdate: PropTypes.func.isRequired,
-}
+};
 
 export default ImagePicker;

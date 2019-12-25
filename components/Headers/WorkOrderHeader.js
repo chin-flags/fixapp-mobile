@@ -1,12 +1,17 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { View, Text,StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import { Button } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
-import  { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Layout from '../../constants/Layout';
 import Colors from '../../constants/Colors';
 
@@ -19,7 +24,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'center', 
+    alignItems: 'center',
   },
   title: {
     fontFamily: 'notosans-bold',

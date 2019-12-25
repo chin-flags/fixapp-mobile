@@ -38,7 +38,12 @@ const styles = StyleSheet.create({
 });
 
 const WorkOrderItem = ({ workOrder, navigation, setWorkorder }) => {
-  const { location, issueDetails, status, tags } = workOrder;
+  const {
+    location,
+    issueDetails,
+    status,
+    tags,
+  } = workOrder;
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -80,7 +85,7 @@ WorkOrderItem.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setWorkorder: (workorder) => dispatch(setSelectedWorkorder(workorder))
+  setWorkorder: (workorder) => dispatch(setSelectedWorkorder(workorder)),
 });
 
 export default connect(null, mapDispatchToProps)(withNavigation(WorkOrderItem));
