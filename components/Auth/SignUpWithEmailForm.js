@@ -75,11 +75,11 @@ const SignUpWithEmailForm = ({ navigation }) => {
       />
       <Text style={styles.field_error_text}>
         {errors.email
-        && errors.email.type === 'required'
-        && 'Email is Required'}
+          && errors.email.type === 'required'
+          && 'Email is Required'}
         {errors.email
-        && errors.email.type === 'pattern'
-        && 'Email is not valid'}
+          && errors.email.type === 'pattern'
+          && 'Email is not valid'}
       </Text>
       <TextInput
         style={{
@@ -97,7 +97,7 @@ const SignUpWithEmailForm = ({ navigation }) => {
       />
       <Text style={styles.field_error_text}>
         {errors.password
-        && errors.password.type === 'required'
+          && errors.password.type === 'required'
           && 'Password is Required'}
       </Text>
       {
@@ -117,7 +117,6 @@ const SignUpWithEmailForm = ({ navigation }) => {
           signup(email, password)
             .then(() => {
               setLoading(false);
-              setFormError(null);
               navigation.navigate('Main');
             })
             .catch((err) => {
