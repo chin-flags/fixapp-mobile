@@ -14,8 +14,10 @@ Fixapp is an platform which is under development to support field service engine
 this repository is for the mobile app 
 
 ## Screenshots
-[equipment-dashboard]: https://github.com/thinkaloud-lk/fixapp-mobile/blob/master/assets/screenshots/equipment-dashboard.jpg
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1"
+![dashboard](assets/screenshots/equipment-dashboard.jpg)
+![home](assets/screenshots/equipment-home.jpg)
+![login](assets/screenshots/equipment-login.jpg)
+![new-notification](assets/screenshots/equipment-new-notification.jpg)
 ## Technologies
 
 * [expo](https://docs.expo.io/)
