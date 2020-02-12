@@ -15,9 +15,9 @@ this repository is for the mobile app
 
 ## Screenshots
 ![dashboard](assets/screenshots/equipment-dashboard.jpg)
-![home](assets/screenshots/equipment-home.jpg)
-![login](assets/screenshots/equipment-login.jpg)
-![new-notification](assets/screenshots/equipment-new-notification.jpg)
+![home](assets/screenshots/home.jpg)
+![login](assets/screenshots/login.jpg)
+![new-notification](assets/screenshots/new-notification.jpg)
 ## Technologies
 
 * [expo](https://docs.expo.io/)
