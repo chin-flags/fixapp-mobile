@@ -13,6 +13,9 @@ Fixapp is an platform which is under development to support field service engine
 * a chat bot for requesters to raise complaints on faulty/broken equipment
 this repository is for the mobile app 
 
+## Screenshots
+[equipment-dashboard]: https://github.com/thinkaloud-lk/fixapp-mobile/blob/master/assets/screenshots/equipment-dashboard.jpg
+
 ## Technologies
 
 * [expo](https://docs.expo.io/)
@@ -21,6 +24,5 @@ this repository is for the mobile app
 
 
 ## To-do
-
 * connect to firestore 
 * complete the Dashboard screen 
