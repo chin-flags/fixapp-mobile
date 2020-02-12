@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
 import { withNavigation } from 'react-navigation';
 import useForm from 'react-hook-form';
-import { useFirebase } from '../../hooks/useFirebase';
+import { useAuth } from '../../hooks/useAuth';
 import { emailRegEx } from '../../constants/Strings';
 import Colors from '../../constants/Colors';
 
@@ -55,7 +55,7 @@ const SignUpWithEmailForm = ({ navigation }) => {
     defaultValues,
   );
 
-  const { signup } = useFirebase();
+  const { signup } = useAuth();
 
   return (
     <View style={{ width: '100%' }}>

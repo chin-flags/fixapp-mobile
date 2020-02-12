@@ -115,8 +115,4 @@ WorkOrderHeader.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  workOrder: state.workorder.selectedWorkorder,
-});
-
-export default connect(mapStateToProps)(withNavigation(WorkOrderHeader));
+export default withNavigation(WorkOrderHeader);

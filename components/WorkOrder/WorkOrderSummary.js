@@ -25,22 +25,22 @@ const WorkOrderSummary = ({ workOrder }) => {
       <WorkOrderSummaryItem icon="tagso">
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
           {
-          tags.map((tag) => (
-            <View
-              key={tag}
-              style={{
-                marginLeft: 20,
-                justifyContent: 'center',
-                alignItems: 'center',
-                paddingHorizontal: 20,
-                backgroundColor: '#374F6C',
-                borderRadius: 20,
-              }}
-            >
-              <Text style={{ color: 'white' }}>{tag}</Text>
-            </View>
-          ))
-        }
+            tags && tags.map((tag) => (
+              <View
+                key={tag}
+                style={{
+                  marginLeft: 20,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  paddingHorizontal: 20,
+                  backgroundColor: '#374F6C',
+                  borderRadius: 20,
+                }}
+              >
+                <Text style={{ color: 'white' }}>{tag}</Text>
+              </View>
+            ))
+          }
         </View>
       </WorkOrderSummaryItem>
       <WorkOrderSummaryItem icon="picture">

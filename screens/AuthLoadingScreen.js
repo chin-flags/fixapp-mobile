@@ -2,16 +2,15 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import
-{
+import {
   View,
   ActivityIndicator,
 } from 'react-native';
 
-import { useFirebase } from '../hooks/useFirebase';
+import { useAuth } from '../hooks/useAuth';
 
 const AuthLoadingScreen = ({ navigation }) => {
-  const { authUser, initializing } = useFirebase();
+  const { authUser, initializing } = useAuth();
 
   useEffect(() => {
     if (!initializing) {

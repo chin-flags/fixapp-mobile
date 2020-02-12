@@ -4,10 +4,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
-import { useFirebase } from '../hooks/useFirebase';
+import { useAuth } from '../hooks/useAuth';
 
 const ProfileScreen = ({ navigation }) => {
-  const firebase = useFirebase();
+  const firebase = useAuth();
   return (
     <View style={{ flex: 1 }}>
       <Text>Profile</Text>

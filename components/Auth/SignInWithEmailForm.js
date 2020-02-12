@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 import { Button } from 'react-native-paper';
 import useForm from 'react-hook-form';
-import { useFirebase } from '../../hooks/useFirebase';
+import { useAuth } from '../../hooks/useAuth';
 import { emailRegEx } from '../../constants/Strings';
 import Colors from '../../constants/Colors';
 
@@ -55,7 +55,7 @@ const SignInWithEmailForm = ({ navigation }) => {
   } = useForm(
     defaultValues,
   );
-  const { signin } = useFirebase();
+  const { signin } = useAuth();
   return (
     <ScrollView style={{ width: '100%' }}>
       <TextInput
@@ -75,11 +75,11 @@ const SignInWithEmailForm = ({ navigation }) => {
       />
       <Text style={styles.field_error_text}>
         {errors.email
-        && errors.email.type === 'required'
+          && errors.email.type === 'required'
           && 'Email is Required'}
         {errors.email
-        && errors.email.type === 'pattern'
-        && 'Email is not valid'}
+          && errors.email.type === 'pattern'
+          && 'Email is not valid'}
       </Text>
       <TextInput
         style={{
@@ -98,8 +98,8 @@ const SignInWithEmailForm = ({ navigation }) => {
       />
       <Text style={styles.field_error_text}>
         {errors.password
-        && errors.password.type === 'required'
-        && 'Password is Required'}
+          && errors.password.type === 'required'
+          && 'Password is Required'}
       </Text>
       {
         formError && (

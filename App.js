@@ -9,7 +9,7 @@ import {
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Portal } from 'react-native-paper';
 import { Provider } from 'react-redux';
-import { FirebaseProvider } from './hooks/useFirebase';
+import { FirebaseAuthProvider } from './hooks/useAuth';
 import AppNavigator from './navigation/AppNavigator';
 import store from './redux/store';
 
@@ -66,7 +66,7 @@ const App = () => {
     );
   }
   return (
-    <FirebaseProvider>
+    <FirebaseAuthProvider>
       <Provider store={store}>
         <Portal.Host>
           <View style={styles.container}>
@@ -75,7 +75,7 @@ const App = () => {
           </View>
         </Portal.Host>
       </Provider>
-    </FirebaseProvider>
+    </FirebaseAuthProvider>
   );
 };
 

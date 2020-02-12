@@ -49,7 +49,7 @@ const WorkOrderItem = ({ workOrder, navigation, setWorkorder }) => {
       activeOpacity={0.8}
       onPress={() => {
         setWorkorder(workOrder);
-        navigation.navigate('WorkOrderDetails');
+        navigation.navigate('WorkOrderDetails', { workOrderId: workOrder.id });
       }}
       style={styles.container}
     >
