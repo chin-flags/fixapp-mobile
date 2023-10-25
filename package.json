@@ -20,7 +20,7 @@
     "expo-asset": "^6.0.0",
     "expo-barcode-scanner": "~6.0.0",
     "expo-camera": "^7.0.0",
-    "expo-cli": "^3.9.0",
+    "expo-cli": "^6.3.10",
     "expo-constants": "6.0.0",
     "expo-font": "^6.0.1",
     "expo-image-picker": "~6.0.0",
